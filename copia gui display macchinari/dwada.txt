@@ -1,0 +1,278 @@
+PAGINA PRE-MODIFICA SINGOLA TABELLA
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collegamenti dispositivi</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="./index.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="item1">
+        <h1 class="titolo">
+          <img
+            src="logo_CLAIND_horizontal_positive_standard.jpg"
+            class="logo"
+          />Collaudo
+        </h1>
+      </div>
+
+      <div class="item2">
+        <h2 class="titoloProdotti">Prodotti</h2>
+        <ul class="listaProdotti">
+          <button id="olympia" onclick="changeTitle(this)">Olympia</button
+          ><br />
+          <button id="plinius" onclick="changeTitle(this)">Plinius</button>
+          <button id="dominus" onclick="changeTitle(this)">Dominus</button>
+        </ul>
+      </div>
+
+      <div class="item3"></div>
+      <div class="item4"></div>
+      <div class="item5"></div>
+      <div class="item6"></div>
+
+      <div id="inner-grid">
+        <div class="item8" id="inner-grid3">
+          <div class="item10" id="intestazioneMonitor">
+            CLAIND
+          </div>
+
+          <div class="item11">
+            <table class="widget1">
+              <tr>
+                <td>Portata aria</td>
+              </tr>
+              <tr>
+                <td>0.0 bar</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="imgBackground">
+            <img src="linea_top.jpg" class="imgTop" />
+          </div>
+          <div class="item13">
+            <table class="widget2">
+              <tr>
+                <td>Pressione azoto</td>
+              </tr>
+              <tr>
+                <td>0.0 bar</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="imgBackground">
+            <img src="linea_left.jpg" class="imgLeft" />
+          </div>
+          <div class="imgBackground">
+            <img src="Immagine-removebg-preview.png" class="imgCentro" />
+          </div>
+          <div class="imgBackground">
+            <img src="linea_right.jpg" class="imgRight" />
+          </div>
+
+          <div class="item17">
+            <table class="widget3">
+              <tr>
+                <td>Pressione CMS 1</td>
+              </tr>
+              <tr>
+                <td>0.0 bar</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="imgBackground">
+            <img src="linea_bottom.jpg" class="imgBottom" />
+          </div>
+          <div class="item19">
+            <table class="widget4">
+              <tr>
+                <td>Pressione CMS 2</td>
+              </tr>
+              <tr>
+                <td>0.0 bar</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <button class="buttonPwr">
+            <img src="power_NB.png" class="imgPower" />
+          </button>
+        </div>
+        <div>
+          <button class="buttonWarning">
+            <img src="warning-NB.png" class="imgWarning" />
+          </button>
+        </div>
+        <div>
+          <button class="buttonSettings" onclick="showSettings()">
+            <img src="impostazioni_NB.png" class="imgSettings" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+/**********************************/
+/ logo     Claind collegamenti     /
+/----------------------------------/
+/ComboBox  /------------/          /
+/ opz1     /  display   /          /
+/ opz2     /            /          /
+/ opz3     /------------/          /
+/                                  /
+/**********************************/
+
+    
+-->
+
+
+
+widget schermata iniziale
+
+.widget1{
+  color: var(--white);
+  text-align: center;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+.widget2{
+  color: var(--white);
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.widget3{
+  color: var(--white);
+  text-align: center;
+  margin-left: 23%;
+  margin-bottom: 10%;
+}
+
+.widget4{
+  color: var(--white);
+  text-align: center;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+
+css layout figo
+.imgCentro {
+  width: 45%;
+  height: 60%;
+  position: relative;
+  float: center;
+  margin-bottom: 5%;
+}
+
+.imgLeft {
+  width: 85%;
+  height: 2%;
+  position: relative;
+  float: center;
+  margin-left: 15%;
+  margin-bottom: 2%;
+  background: var(--white);
+}
+
+.imgRight {
+  width: 85%;
+  height: 2%;
+  position: relative;
+  float: center;
+  margin-right: 15%;
+  margin-bottom: 2%;
+  background: var(--white);
+}
+
+.imgTop {
+  width: 2%;
+  height: 85%;
+  position: relative;
+  float: center;
+  background: var(--white);
+  margin-top: 10%;
+}
+
+.imgBottom {
+  width: 2%;
+  height: 85%;
+  position: relative;
+  float: center;
+  background: var(--white);
+}
+
+
+TABELLA
+      <table id="tabellaImpostazioni" hidden>
+            <!--TABELLA NON VISUALIZZATA CONTENENTE LE IMPOSTAZIONI-->
+            <tr>
+              <!--PRIMA RIGA DELLA TABELLA DELLE IMPOSTAZIONI-->
+              <td class="c2">
+                <table class="dimensione">
+                  <tr>
+                    <td><img src="/resources display/user.jpg" /></td>
+                  </tr>
+                  <tr>
+                    <td>User</td>
+                  </tr>
+                </table>
+              </td>
+              <td class="c2">
+                <table class="dimensione">
+                  <tr>
+                    <td><img src="/resources display/pwd.jpg" /></td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!--FINE PRIMA RIGA-->
+
+            <tr>
+              <!--SECONDA RIGA DELLA TABELLA DELLE IMPOSTAZIONI-->
+              <td class="c2">
+                <table class="dimensione">
+                  <tr>
+                    <td><img src="resources display/service.jpg" /></td>
+                  </tr>
+
+                  <tr>
+                    <td>Service</td>
+                  </tr>
+                </table>
+              </td>
+              <td class="c2">
+                <table class="dimensione">
+                  <tr>
+                    <td><img src="resources display/man.jpg" /></td>
+                  </tr>
+                  <tr>
+                    <td>Maintenance</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!--FINE SECONDA RIGA-->
+          </table>      

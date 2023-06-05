@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap');
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --lightBlue: #add8e6;
+  --grey: #575755;
+}
+
+.logo{
+  width: 25%;
+  height: 10%;
+  position: relative;
+  float: left;
+}
+
+.titolo{
+  font-size: 46px;
+  font-family: 'Barlow', sans-serif;  
+  position: relative;
+  text-align: center;
+  margin-top: 2%;
+  font-weight: bold;
+}
+
+.titoloProdotti{
+  margin-top: 20%;
+  float: center;
+  padding-left: 15%;
+  font-family: 'Barlow', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+
+}
+
+.listaProdotti{
+  font-family: 'Barlow', sans-serif;
+  float: center;
+}
+
+#olympia,#plinius,#dominus{
+  margin-top: 15%;
+  background-color: var(--white); 
+  color: var(--black);
+  border: var(--white);
+}
+
+.imgPower{
+  height: 50%;
+  position: relative;
+  float: center;
+  margin-bottom: 15%;
+}
+
+.buttonPwr{
+  background: var(---lightBlue);
+  height: 100%;
+  border: var(---lightBlue);
+}
+
+.imgWarning{
+  height: 50%;
+  position: relative;
+  float: center;
+  margin-bottom: 15%;
+}
+
+.buttonWarning{
+  background: var(---lightBlue);
+  height: 100%;
+  border: var(---lightBlue);
+}
+
+.imgSettings {
+  height: 50%;
+  position: relative;
+  float: center;
+  margin-bottom: 15%;
+}
+
+.buttonSettings{
+  background: var(---lightBlue);
+  height: 100%;
+  border: var(---lightBlue);
+}
+
+#tabellaPrincipale {
+  width: 100%;
+  height: 88%;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#tabellaImpostazioni{
+  width: 100%;
+  height: 88%;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+#tabellaServices{
+  width: 100%;
+  height: 88%;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.c1 {
+  border-right: 1px solid var(--white);
+  width: 50%;
+}
+
+.c2 {
+  border-bottom: 1px solid var(--white);
+  width: 50%;
+}
+
+.c3 {
+  border-left: 1px solid var(--white);
+  width: 50%;
+}
+
+.c4 {
+  border-top: 1px solid var(--white);
+  width: 50%;
+}
+
+.dimensione {
+  border: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  border: 1px solid var(--white);
+  background-color: var(--grey);
+  width: 40%;
+  height: 30%;
+  position: relative;
+  float: right;
+}
+
+.cellaInput {
+  border: 1px solid var(--white);
+  background-color: var(--grey);
+  width: 20%;
+  height: 40%;
+  position: relative;
+  float: right;
+}
+
+.cellaTesto {
+  text-align: left;
+  margin-bottom: 1px var(--white);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 5% 70% 5%;
+  grid-template-rows: 20% 2% 76% 2%;
+}
+
+.grid-container > div {
+  text-align: center;
+  font-size: xx-large;
+}
+
+#inner-grid {
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 40% 40% 20%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#inner-grid > div {
+  background: var(--lightBlue);
+}
+
+
+.imgBackground {
+  background-color: var(--black);
+}
+
+
+.item1 {
+  grid-area: 1 / 1 / 1 / span 4;
+}
+
+.item2 {
+  grid-area: 2 / 1 / span 3 / 1;
+}
+
+.item3 {
+  grid-area: 2 / 2 / span 3 / 2;
+}
+
+.item4 {
+  grid-area: 2 / 3 / 2 / span 2;
+}
+.item5 {
+  grid-area: 3 / 4 / 3 / 4;
+}
+.item6 {
+  grid-area: 4 / 3 / 4 /span 2;
+}
+.item7 {
+  grid-area: 3 / 3 / 3 / 3;
+}
+.item8 { 
+  grid-area: 1 / 1 / span 2 / span 3;
+}
+.item10 {
+  grid-area: 1 / 1 / 1 / span 3;
+  background-color: var(---lightBlue);
+  position: relative;
+  float: top;
+  color: var(--white);
+}
+
+table{
+  font-family: 'Barlow', sans-serif;
+}
