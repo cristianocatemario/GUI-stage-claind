@@ -17,11 +17,7 @@
     <div class="grid-container">
       <div class="item1">
         <h1 class="titolo">
-          <img
-            src="logo_CLAIND_horizontal_positive_standard.jpg"
-            class="logo"
-            style="margin-left: 15px"
-          />Collaudo
+          <img src="logo_CLAIND_horizontal_positive_standard.jpg" class="logo" style="margin-left: 15px" onclick="location.reload()"/>Collaudo
         </h1>
       </div>
 
@@ -43,11 +39,11 @@
       <div id="inner-grid">
         <div class="item8">
           <div class="item10" id="intestazioneMonitor">
-            <img src="Resources/prev.png" style="width: 3%;" hidden/>
+            <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPage(this)" hidden/>
             CLAIND
-            <img src="Resources/next.png" style="width: 3%;" hidden/>
+            <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPage(this)" hidden/>
           </div>
-
+          
           <table id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
             <tr>
               <td>
@@ -113,37 +109,141 @@
             </tr>
           </table> <!--FINE TABELLA SETTINGS-->
 
-          <table id="tabellaServices" hidden>
+          <table id="tabellaServices0" hidden>
             <tr> 
               <td class="cellaTesto">Tempo di adsorption[s]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Tempo di desorption[s]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Tempo di cut-off[s]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Tempo di equalizzazione[s]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Pressione min stand-by [bar]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Pressione max stand-by[bar]</td>
-              <td><input class="cellaInput" type="text"/></td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
-          </table>    
+          </table>
+          
+          <table id="tabellaServices1" hidden>
+            <tr> 
+              <td class="cellaTesto">Pressione minima azoto[bar]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Prima soglia allarme O2</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Seconda soglia allarme O2</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Tempo massimo O2 elevato[min]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Pressione max aria compressa[bar]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Pressione soglia max umidità aria[C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+          </table>
+
+          <table id="tabellaServices2" hidden>
+            <tr> 
+              <td class="cellaTesto">Seconda soglia massima umidità aria[C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Prima soglia temperatura aria[C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Seconda soglia temperatura aria[C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Pressione minima aria[bar]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Min range portata N2[Nm3/h]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Max range portata N2[Nm3/h]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+          </table>
+          <table id="tabellaServices8" hidden>
+            <tr>
+             <td style="text-align:left">Config.:</td>
+            </tr>
+            <tr>
+               <td>
+                <button style="width:60%; height:30%; text-align:center">
+                  Salva
+                </button>
+               </td>
+               <td>
+                <button style="width:60%; height:30%; text-align:center">
+                  Carica
+                </button>
+               </td>
+               <td>
+                <button style="width:60%; height:30%; text-align:center">
+                  Invia
+                </button>
+               </td>
+            </tr>
+            <tr>
+             <td style="text-align:left">Log:</td>
+             <td style="text-align:center"> </td>
+             <td style="text-align:right">In attesa</td>
+            </tr>
+              <tr>
+               <td>
+                <button style="width:60%; height:30%; text-align:center">
+                  Salva
+                </button>
+               </td>
+               <td style="text-align:center"> </td>
+               <td>
+                <button style="width:60%; height:30%; text-align:center">
+                  Invia
+                </button>
+               </td>
+            </tr>
+          </table>
         </div>
 
         <div> <!--PANNELLO COMANDI INFERIORE-->
@@ -161,6 +261,7 @@
             <img src="impostazioni_NB.png" id="imgBS" class="imgSettings" onclick="showPage(this)"/>
           </button>
         </div>
+
       </div>
     </div>
   </body>
