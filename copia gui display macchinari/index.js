@@ -16,6 +16,7 @@ function hideAll(){
   for (let i = 1; i < 12; i++) { //nascondo tutti i table services
     document.getElementById(s + "" + i).setAttribute("hidden", "hidden");
   }
+  //document.getElementById('contPage').setAttribute("hidden", "hidden");
 }
 
 function changeTitle(nomeProdotto) {
@@ -64,8 +65,8 @@ function showPageByNumber(ts, component){
       hideAll();
       nextPage--;
       pagina = ts + nextPage;
-      // previousPage = ts + nextPage--;
-    }else if(nextPage<0){
+    }
+    if(nextPage<0){
       nextPage=11;
       pagina = ts + nextPage;
     }
@@ -77,7 +78,7 @@ function showPageByNumber(ts, component){
   document.getElementById('contPage').innerHTML = nextPage + "/11";
 }
 
-const tableimg = new Map([
+const tableimg =new Map([
   ["imgBS", "tabellaImpostazioni"], //associo all'immagine delle impostazioni, la pagina delle impostazioni
   ["imgSRVC", "tabellaServices1"],
   ["lblSRVC", "tabellaServices1"],

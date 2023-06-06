@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collegamenti dispositivi</title>
+    <title>Collaudo dispositivi</title>
     <link rel="stylesheet" href="index.css" />
     <script src="./index.js"></script>
     <link
@@ -11,6 +11,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
   </head>
 
   <body>
@@ -38,10 +39,19 @@
       <div id="inner-grid">
         <div class="item8">
           <div class="item10" id="intestazioneMonitor">
-            <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
-            CLAIND 
-            <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
-            <p id="contPage" hidden>1/11</p>
+            <table style="width: 100%;">
+              <tr>
+                <td> </td>
+                <th style="text-align:center;">
+                  <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
+                  CLAIND
+                  <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
+                </th>
+                <th>
+                  <p id="contPage" style="margin-bottom: -5%;" hidden>1/11</p> 
+                </th>
+              </tr>
+            </table>
           </div>
           
           <table id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
@@ -241,59 +251,59 @@
           <table class="tabellaService" id="tabellaServices5" hidden>
             <tr> 
               <td class="cellaTesto">PNV01</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv01">22</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv01" style="font-size: 24px; margin-bottom: 0px;">22</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV02</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv02">3</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv02" style="font-size: 24px; margin-bottom: 0px;">3</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV03</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv03">6</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv03" style="font-size: 24px; margin-bottom: 0px;">6</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV04</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv04">24</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv04" style="font-size: 24px; margin-bottom: 0px;">24</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV05</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv05">24</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv05" style="font-size: 24px; margin-bottom: 0px;">24</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV06</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv06">6</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv06" style="font-size: 24px; margin-bottom: 0px;">6</p></td>
             </tr>
           </table>
 
           <table class="tabellaService" id="tabellaServices6" hidden>
             <tr> 
               <td class="cellaTesto">PNV07</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv07">22</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv07" style="font-size: 24px; margin-bottom: 0px;">22</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV08</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv08">3</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv08" style="font-size: 24px; margin-bottom: 0px;">3</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV09</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv09">0</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv09" style="font-size: 24px; margin-bottom: 0px;">0</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV10</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv10">19</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv10" style="font-size: 24px; margin-bottom: 0px;">19</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">PNV11</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv11">19</p></td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv11" style="font-size: 24px; margin-bottom: 0px;">19</p></td>
             </tr>
           </table>
 
@@ -315,17 +325,17 @@
 
             <tr> 
               <td class="cellaTesto">CEC2020 Version fw</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="cec2020versionfw">DONL.0.3.2.C</p></td>
+              <td style="border-bottom: 1px solid #ffffff; padding-left: 30%;"><p id="cec2020versionfw">DONL.0.3.2.C</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto">Display Version</td>
-              <td style="border-bottom: 1px solid #ffffff;"><p id="displayversion">DONL.0.3.1.D</p></td>
+              <td style="border-bottom: 1px solid #ffffff; padding-left: 30%;"><p id="displayversion">DONL.0.3.1.D</p></td>
             </tr>
 
             <tr> 
               <td class="cellaTesto"></td>
-              <td style="border-bottom: 1px solid #ffffff;"><button class="btnDefault">Aggiorna</td>
+              <td style="border-bottom: 1px solid #ffffff; padding-left: 35%;"><button class="btnDefault">Aggiorna</td>
             </tr>
           </table>
 
@@ -372,9 +382,9 @@
 
           <table class="tabellaService" id="tabellaServices9" hidden>
             <tr>
-              <td style="border-bottom:1px solid #ffffff;text-align: left;">Traccia selezionata</td>
+              <td style="border-bottom:1px solid #ffffff;text-align: left; font-size: 24px;">Traccia selezionata</td>
               <td style="border-bottom:1px solid #ffffff"> </td>
-              <td style="border-bottom:1px solid #ffffff">0/0</td>
+              <td style="border-bottom:1px solid #ffffff; font-size: 24px;">0/0</td>
             </tr>
             <tr>
               <td style="padding:5%"> </td>
@@ -382,9 +392,9 @@
               <td style="padding:5%"> </td>
             </tr>
             <tr>
-              <td style="text-align: left;">Operazione:</td>
+              <td style="text-align: left; font-size: 24px;">Operazione:</td>
               <td> </td>
-              <td>In attesa</td>
+              <td style="font-size: 24px;">In attesa</td>
             </tr>
             <tr>
               <td>
@@ -407,7 +417,7 @@
           
           <table class="tabellaService" id="tabellaServices10" hidden>
             <tr>
-              <td>Pe01</td>
+              <td style="font-size: 24px;">Pe01</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -420,7 +430,7 @@
               </td>
             </tr>
             <tr>
-              <td>Pe02</td>
+              <td style="font-size: 24px;">Pe02</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -433,7 +443,7 @@
               </td>
             </tr>
             <tr>
-              <td>Pe03</td>
+              <td style="font-size: 24px;">Pe03</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -451,7 +461,7 @@
               </td>
             </tr>
             <tr>
-              <td>Pe04</td>
+              <td style="font-size: 24px;">Pe04</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -467,7 +477,7 @@
           
           <table class="tabellaService" id="tabellaServices11" hidden>
             <tr>
-              <td>0X01</td>
+              <td style="font-size: 24px;">0X01</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -480,7 +490,7 @@
               </td>
             </tr>
             <tr>
-              <td>MT01</td>
+              <td style="font-size: 24px;">MT01</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -493,7 +503,7 @@
               </td>
             </tr>
             <tr>
-              <td>TE01</td>
+              <td style="font-size: 24px;">TE01</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
@@ -511,7 +521,7 @@
               </td>
             </tr>
             <tr>
-              <td>MFM01</td>
+              <td style="font-size: 24px;">MFM01</td>
               <td style="padding-left:7%">
                 <button class="btnDefault">
                   Avvia
