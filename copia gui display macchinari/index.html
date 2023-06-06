@@ -39,8 +39,9 @@
         <div class="item8">
           <div class="item10" id="intestazioneMonitor">
             <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
-            CLAIND
+            CLAIND 
             <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
+            <p id="contPage" hidden>1/11</p>
           </div>
           
           <table id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
@@ -107,7 +108,6 @@
               </td>
             </tr>
           </table> <!--FINE TABELLA SETTINGS-->
-
           
           <!--PAGINE SERVICES-->
           <table class="tabellaService" id="tabellaServices1" hidden>
@@ -164,7 +164,7 @@
             </tr>
 
             <tr> 
-              <td class="cellaTesto">Pressione max aria compressa[bar]</td>
+              <td class="cellaTesto" >Pressione max aria compressa[bar]</td>
               <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
 
@@ -325,45 +325,45 @@
 
             <tr> 
               <td class="cellaTesto"></td>
-              <td style="border-bottom: 1px solid #ffffff;"><button class="">Aggiorna</td>
+              <td style="border-bottom: 1px solid #ffffff;"><button class="btnDefault">Aggiorna</td>
             </tr>
           </table>
 
           <table class="tabellaService" id="tabellaServices8" hidden>
             <tr>
-              <td style="text-align:left">Config.:</td>
+              <td style="text-align:left; font-size: 24px;">Config.:</td>
              </tr>
              <tr>
                 <td style="padding-left:8%">
-                 <button style="width:60%; height:30%; text-align:center">
+                 <button style="width:60%; height:30%; text-align:center" class="btnDefault">
                    Salva
                  </button>
                 </td>
                 <td style="padding-left:8%">
-                 <button style="width:60%; height:30%; text-align:center">
+                 <button style="width:60%; height:30%; text-align:center" class="btnDefault">
                    Carica
                  </button>
                 </td>
                 <td style="padding-left:8%">
-                 <button style="width:60%; height:30%; text-align:center">
+                 <button style="width:60%; height:30%; text-align:center" class="btnDefault">
                    Invia
                  </button>
                 </td>
              </tr>
              <tr>
-              <td style="text-align:left">Log:</td>
+              <td style="text-align:left; font-size: 24px;">Log:</td>
               <td style="text-align:center"> </td>
-              <td style="text-align:right">In attesa</td>
+              <td style="text-align:right; font-size: 24px;">In attesa</td>
              </tr>
                <tr>
                 <td style="padding-left:8%">
-                 <button style="width:60%; height:30%; text-align:center">
+                 <button style="width:60%; height:30%; text-align:center" class="btnDefault">
                    Salva
                  </button>
                 </td>
                 <td style="text-align:center"> </td>
                 <td style="padding-left:8%">
-                 <button style="width:60%; height:30%; text-align:center">
+                 <button style="width:60%; height:30%; text-align:center" class="btnDefault">
                    Invia
                  </button>
                 </td>
@@ -372,7 +372,7 @@
 
           <table class="tabellaService" id="tabellaServices9" hidden>
             <tr>
-              <td style="border-bottom:1px solid #ffffff">Traccia selezionata</td>
+              <td style="border-bottom:1px solid #ffffff;text-align: left;">Traccia selezionata</td>
               <td style="border-bottom:1px solid #ffffff"> </td>
               <td style="border-bottom:1px solid #ffffff">0/0</td>
             </tr>
@@ -382,23 +382,23 @@
               <td style="padding:5%"> </td>
             </tr>
             <tr>
-              <td>Operazione:</td>
+              <td style="text-align: left;">Operazione:</td>
               <td> </td>
               <td>In attesa</td>
             </tr>
             <tr>
               <td>
-                <button>
+                <button class="btnDefault">
                   Forza
                 </button>
               </td>
               <td style="padding-left:13.2%">
-                <button>
-                  scrivi
+                <button class="btnDefault">
+                  Scrivi
                 </button>
               </td>
               <td>
-                <button>
+                <button class="btnDefault">
                   Forza
                 </button>
               </td>
@@ -409,12 +409,12 @@
             <tr>
               <td>Pe01</td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Avvia
                 </button>
               </td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Elimina
                 </button>
               </td>
@@ -422,12 +422,12 @@
             <tr>
               <td>Pe02</td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Avvia
                 </button>
               </td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Elimina
                 </button>
               </td>
@@ -435,17 +435,17 @@
             <tr>
               <td>Pe03</td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Avvia
                 </button>
               </td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Elimina
                 </button>
               </td>
               <td>
-                <button>
+                <button class="btnDefault">
                   Aiuto
                 </button>
               </td>
@@ -453,12 +453,12 @@
             <tr>
               <td>Pe04</td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Avvia
                 </button>
               </td>
               <td style="padding-left:7%">
-                <button>
+                <button class="btnDefault">
                   Elimina
                 </button>
               </td>

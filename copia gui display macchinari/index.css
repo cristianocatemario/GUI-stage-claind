@@ -156,12 +156,15 @@ input {
 .cellaTesto {
   text-align: left;
   border-bottom: 1px solid var(--white);
-  
+  font-size: 24px;
 }
+
+
 
 .btnDefault{
   background-color: var(--grey);
   color: var(--white);
+  border:1px solid var(--white);
 }
 
 .grid-container {

@@ -1,12 +1,11 @@
-var settings = false;
-var services = false;
 var pageIndex = 0;
 
 var i = 0;
-var charAt = 0;
 
 var nextPage = 1; 
 var previousPage;
+
+var s = "tabellaServices";
 
 function hideAll(){
   document.getElementById('tabellaPrincipale').setAttribute("hidden", "hidden");
@@ -14,6 +13,9 @@ function hideAll(){
   document.getElementById('tabellaServices1').setAttribute("hidden", "hidden");
   document.getElementById('prev').setAttribute("hidden", "hidden");
   document.getElementById('next').setAttribute("hidden", "hidden");
+  for (let i = 1; i < 12; i++) { //nascondo tutti i table services
+    document.getElementById(s + "" + i).setAttribute("hidden", "hidden");
+  }
 }
 
 function changeTitle(nomeProdotto) {
@@ -32,37 +34,47 @@ function showPage(tag){
     tag.src = "Resources/indietro.png";
   }
   else if(pageIndex == 2){
-    document.getElementById('prev').removeAttribute("hidden")
-    document.getElementById('next').removeAttribute("hidden")
+    document.getElementById('prev').removeAttribute("hidden");
+    document.getElementById('next').removeAttribute("hidden");
+    document.getElementById('contPage').removeAttribute("hidden");
   }
 }
 
 function showPageByNumber(ts, component){
   var pagina;
+  var cont = 0;
 
   if(component.id == "next"){ //pag succ
-    nextPage++;
-    pagina = ts + nextPage; //concat della stringa tabellaServices e 1 = tabellaServices1
+    if(nextPage >= 11){ //dopo l'ultima pagina
+      nextPage = 1;
+      hideAll();
+      pagina = ts + nextPage; //concat della stringa tabellaServices e 1 = tabellaServices1
+    }
+    else{
+      hideAll();
+      nextPage++;
+      pagina = ts + nextPage; //concat della stringa tabellaServices e 1 = tabellaServices1
+    }
   }
 
   if(component.id == "prev"){ //pag precedente
     if(nextPage == 0 ){
       document.getElementById("tabellaServices1").removeAttribute("hidden");
-    }
-    else{
+    }else if(nextPage>0){
+      hideAll();
       nextPage--;
       pagina = ts + nextPage;
-      previousPage = ts + nextPage--;
-      hideAll();
+      // previousPage = ts + nextPage--;
+    }else if(nextPage<0){
+      nextPage=11;
+      pagina = ts + nextPage;
     }
   }
 
-
-  // document.getElementById(previousPage).setAttribute("hidden", "hidden");
-  hideAll();
   document.getElementById('prev').removeAttribute("hidden");
   document.getElementById('next').removeAttribute("hidden");
   document.getElementById(pagina).removeAttribute("hidden");
+  document.getElementById('contPage').innerHTML = nextPage + "/11";
 }
 
 const tableimg = new Map([
