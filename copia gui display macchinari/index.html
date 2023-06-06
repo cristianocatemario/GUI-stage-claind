@@ -22,13 +22,12 @@
       </div>
 
       <div class="item2">
-        <h2 class="titoloProdotti">Prodotti</h2>
-        <ul class="listaProdotti">
-          <button id="olympia" onclick="changeTitle(this)">Olympia</button
-          ><br />
-          <button id="plinius" onclick="changeTitle(this)">Plinius</button>
-          <button id="dominus" onclick="changeTitle(this)">Dominus</button>
-        </ul>
+        <table class="listaProdotti" style="margin-top: 25%;">
+          <th class="titoloProdotti" style="padding-left: 90%;">Prodotti</th>
+          <tr><td style="padding-left: 95%;margin-top: 30%;"><button id="olympia" onclick="changeTitle(this)">Olympia</button></td></tr>
+          <tr><td style="padding-left: 100%;margin-top: 30%;"><button id="plinius" onclick="changeTitle(this)">Plinius</button></td></tr>
+          <tr><td style="padding-left: 90%;margin-top: 30%;"><button id="dominus" onclick="changeTitle(this)">Dominus</button></td></tr>
+        </table>
       </div>
 
       <div class="item3"></div>
@@ -39,9 +38,9 @@
       <div id="inner-grid">
         <div class="item8">
           <div class="item10" id="intestazioneMonitor">
-            <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPage(this)" hidden/>
+            <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
             CLAIND
-            <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPage(this)" hidden/>
+            <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPageByNumber('tabellaServices', this)" hidden/>
           </div>
           
           <table id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
@@ -82,8 +81,8 @@
               <td>
                 <table class="dimensione">
                   <tr>
-                    <td class="c1" onclick="showUser()"><img src="/resources display/user.jpg" /></td>
-                    <td><img src="/resources display/pwd.jpg" /></td>
+                    <td class="c1" onclick="showUser()"><img src="resources display/user.jpg" /></td>
+                    <td><img src="resources display/pwd.jpg" /></td>
                   </tr>
                   <tr>
                     <td class="c1" onclick="showUser()">User</td>
@@ -109,7 +108,9 @@
             </tr>
           </table> <!--FINE TABELLA SETTINGS-->
 
-          <table id="tabellaServices0" hidden>
+          
+          <!--PAGINE SERVICES-->
+          <table class="tabellaService" id="tabellaServices1" hidden>
             <tr> 
               <td class="cellaTesto">Tempo di adsorption[s]</td>
               <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
@@ -141,7 +142,7 @@
             </tr>
           </table>
           
-          <table id="tabellaServices1" hidden>
+          <table class="tabellaService" id="tabellaServices2" hidden>
             <tr> 
               <td class="cellaTesto">Pressione minima azoto[bar]</td>
               <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
@@ -173,7 +174,7 @@
             </tr>
           </table>
 
-          <table id="tabellaServices2" hidden>
+          <table class="tabellaService" id="tabellaServices3" hidden>
             <tr> 
               <td class="cellaTesto">Seconda soglia massima umidità aria[C]</td>
               <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
@@ -204,47 +205,326 @@
               <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
           </table>
-          <table id="tabellaServices8" hidden>
-            <tr>
-             <td style="text-align:left">Config.:</td>
+
+          <table class="tabellaService" id="tabellaServices4" hidden>
+            <tr> 
+              <td class="cellaTesto">Abilitazione iAQM</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="checkbox"/></td>
             </tr>
-            <tr>
-               <td>
-                <button style="width:60%; height:30%; text-align:center">
-                  Salva
-                </button>
-               </td>
-               <td>
-                <button style="width:60%; height:30%; text-align:center">
-                  Carica
-                </button>
-               </td>
-               <td>
-                <button style="width:60%; height:30%; text-align:center">
-                  Invia
-                </button>
-               </td>
+
+            <tr> 
+              <td class="cellaTesto">Abilitazione iMFM</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="checkbox"/></td>
             </tr>
-            <tr>
-             <td style="text-align:left">Log:</td>
-             <td style="text-align:center"> </td>
-             <td style="text-align:right">In attesa</td>
+
+            <tr> 
+              <td class="cellaTesto">Min range umidità [C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
-              <tr>
-               <td>
-                <button style="width:60%; height:30%; text-align:center">
-                  Salva
-                </button>
-               </td>
-               <td style="text-align:center"> </td>
-               <td>
-                <button style="width:60%; height:30%; text-align:center">
-                  Invia
-                </button>
-               </td>
+
+            <tr> 
+              <td class="cellaTesto">Max range umidità [C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Calibrazione umidità [C]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">iMFM Contatore toale [m3]</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
             </tr>
           </table>
-        </div>
+
+          <table class="tabellaService" id="tabellaServices5" hidden>
+            <tr> 
+              <td class="cellaTesto">PNV01</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv01">22</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV02</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv02">3</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV03</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv03">6</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV04</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv04">24</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV05</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv05">24</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV06</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv06">6</p></td>
+            </tr>
+          </table>
+
+          <table class="tabellaService" id="tabellaServices6" hidden>
+            <tr> 
+              <td class="cellaTesto">PNV07</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv07">22</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV08</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv08">3</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV09</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv09">0</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV10</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv10">19</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">PNV11</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="pnv11">19</p></td>
+            </tr>
+          </table>
+
+          <table class="tabellaService" id="tabellaServices7" hidden>
+            <tr> 
+              <td class="cellaTesto">Numero di serie</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Porta Claind4You</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="number"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Broker</td>
+              <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" type="text"/></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">CEC2020 Version fw</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="cec2020versionfw">DONL.0.3.2.C</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto">Display Version</td>
+              <td style="border-bottom: 1px solid #ffffff;"><p id="displayversion">DONL.0.3.1.D</p></td>
+            </tr>
+
+            <tr> 
+              <td class="cellaTesto"></td>
+              <td style="border-bottom: 1px solid #ffffff;"><button class="">Aggiorna</td>
+            </tr>
+          </table>
+
+          <table class="tabellaService" id="tabellaServices8" hidden>
+            <tr>
+              <td style="text-align:left">Config.:</td>
+             </tr>
+             <tr>
+                <td style="padding-left:8%">
+                 <button style="width:60%; height:30%; text-align:center">
+                   Salva
+                 </button>
+                </td>
+                <td style="padding-left:8%">
+                 <button style="width:60%; height:30%; text-align:center">
+                   Carica
+                 </button>
+                </td>
+                <td style="padding-left:8%">
+                 <button style="width:60%; height:30%; text-align:center">
+                   Invia
+                 </button>
+                </td>
+             </tr>
+             <tr>
+              <td style="text-align:left">Log:</td>
+              <td style="text-align:center"> </td>
+              <td style="text-align:right">In attesa</td>
+             </tr>
+               <tr>
+                <td style="padding-left:8%">
+                 <button style="width:60%; height:30%; text-align:center">
+                   Salva
+                 </button>
+                </td>
+                <td style="text-align:center"> </td>
+                <td style="padding-left:8%">
+                 <button style="width:60%; height:30%; text-align:center">
+                   Invia
+                 </button>
+                </td>
+             </tr>
+          </table>
+
+          <table class="tabellaService" id="tabellaServices9" hidden>
+            <tr>
+              <td style="border-bottom:1px solid #ffffff">Traccia selezionata</td>
+              <td style="border-bottom:1px solid #ffffff"> </td>
+              <td style="border-bottom:1px solid #ffffff">0/0</td>
+            </tr>
+            <tr>
+              <td style="padding:5%"> </td>
+              <td style="padding:5%"> </td>
+              <td style="padding:5%"> </td>
+            </tr>
+            <tr>
+              <td>Operazione:</td>
+              <td> </td>
+              <td>In attesa</td>
+            </tr>
+            <tr>
+              <td>
+                <button>
+                  Forza
+                </button>
+              </td>
+              <td style="padding-left:13.2%">
+                <button>
+                  scrivi
+                </button>
+              </td>
+              <td>
+                <button>
+                  Forza
+                </button>
+              </td>
+            </tr>
+          </table>
+          
+          <table class="tabellaService" id="tabellaServices10" hidden>
+            <tr>
+              <td>Pe01</td>
+              <td style="padding-left:7%">
+                <button>
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button>
+                  Elimina
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Pe02</td>
+              <td style="padding-left:7%">
+                <button>
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button>
+                  Elimina
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Pe03</td>
+              <td style="padding-left:7%">
+                <button>
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button>
+                  Elimina
+                </button>
+              </td>
+              <td>
+                <button>
+                  Aiuto
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Pe04</td>
+              <td style="padding-left:7%">
+                <button>
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button>
+                  Elimina
+                </button>
+              </td>
+            </tr>
+          </table>
+          
+          <table class="tabellaService" id="tabellaServices11" hidden>
+            <tr>
+              <td>0X01</td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Elimina
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>MT01</td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Elimina
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>TE01</td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Elimina
+                </button>
+              </td>
+              <td>
+                <button class="btnDefault">
+                  Aiuto
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>MFM01</td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Avvia
+                </button>
+              </td>
+              <td style="padding-left:7%">
+                <button class="btnDefault">
+                  Elimina
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>  <!--FINE PAGINE SERVICES-->
 
         <div> <!--PANNELLO COMANDI INFERIORE-->
           <button class="buttonPwr">
