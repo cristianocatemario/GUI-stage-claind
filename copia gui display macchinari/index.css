@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap');
 
 :root {
@@ -8,10 +9,11 @@
 }
 
 .logo{
-  width: 25%;
-  height: 10%;
+  width: 20%;
+  height: 5%;
   position: relative;
   float: left;
+  margin-left: 3%;
 }
 
 .titolo{
@@ -21,6 +23,13 @@
   text-align: center;
   margin-top: 2%;
   font-weight: bold;
+}
+
+.titoloPrincipale{
+  font-family: 'Barlow', sans-serif;
+  font-size: 56px;
+  margin-right: 3%;
+  margin-bottom: 10%;
 }
 
 .titoloProdotti{
@@ -84,6 +93,11 @@
   border: var(---lightBlue);
 }
 
+.settingIcons{
+  width: 43px;
+  height: 43px;
+}
+
 #tabellaPrincipale {
   width: 100%;
   height: 88%;
@@ -92,6 +106,13 @@
 }
 
 #tabellaImpostazioni{
+  width: 100%;
+  height: 88%;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.tabellaWarnings{ 
   width: 100%;
   height: 88%;
   background-color: var(--grey);
@@ -109,7 +130,7 @@
   border-right: 1px solid var(--white);
   width: 50%;
 }
-
+  
 .c2 {
   border-bottom: 1px solid var(--white);
   width: 50%;
@@ -162,9 +183,13 @@ input {
 
 
 .btnDefault{
+  height: 38px;
+  width: 100px;
   background-color: var(--grey);
   color: var(--white);
   border:1px solid var(--white);
+  text-align: center;
+  font-size: 24px;
 }
 
 .grid-container {
