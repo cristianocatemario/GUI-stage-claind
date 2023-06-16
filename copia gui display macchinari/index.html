@@ -48,9 +48,9 @@
                 <tr>
                   <th id="Stop" style="width:10%">Stop</th>
                   <th style="text-align: center;">
-                    <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="showPagesServices(this)" hidden/>
+                    <img id="prev" src="Resources/prev.png" style="width: 3%;" onclick="changePage(this)" hidden/>
                     DOMINUS NL
-                    <img id="next" src="Resources/next.png" style="width: 3%;" onclick="showPagesServices(this)" hidden/>
+                    <img id="next" src="Resources/next.png" style="width: 3%;" onclick="changePage(this)" hidden/>
                   </th>
                   <th>
                     <p id="contPage" style="margin-bottom: -5%;" hidden></p> 
@@ -59,13 +59,13 @@
               </table>
             </div>
             
-            <table id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
+            <table class="tabellaPrincipale" id="tabellaPrincipale"> <!--INIZIO TABELLA PRINCIPALE-->
               <tr>
                 <td>
                   <table class="dimensione">
                     <tr>
-                      <td class="c1">Pressione aria</td>
-                      <td>Pressione azoto</td>
+                      <td class="c1" id="lblWidget1" onclick="showPage(this)">Pressione aria</td>
+                      <td id="lblWidget2" onclick="showPage(this)">Pressione azoto</td>
                     </tr>
                     <tr>
                       <td class="c1" id="airPressure">0.0 bar</td>
@@ -79,8 +79,8 @@
                 <td>
                   <table class="dimensione" style="margin-bottom: 0.8%">
                     <tr>
-                      <td class="c4">Pressione CMS 1</td>
-                      <td class="c3">Pressione CMS 2</td>
+                      <td class="c4" id="lblWidget3" onclick="showPage(this)">Pressione CMS 1</td>
+                      <td class="c3" id="lblWidget4" onclick="showPage(this)">Pressione CMS 2</td>
                     </tr>
                     <tr>
                       <td class="c1" id="CMS1pressure" >0.0 bar</td>
@@ -91,21 +91,44 @@
               </tr>
             </table>
             <!--FINE TABELLA PRINCIPALE-->
+
+            <table class="tabellaWidgets" id="tabellaWidgets" hidden>
+              <tr>
+                <td id="cellaWidget0" class="cellaWidget" abbr="active" style="border: 1px solid white;" onclick="setWidgetState(0)">Pressione azoto</td>
+                <td id="cellaWidget1" class="cellaWidget" abbr="active" style="border: 1px solid white;" onclick="setWidgetState(1)">Pressione aria</td>
+                <td id="cellaWidget2" class="cellaWidget" abbr="active" style="border: 1px solid white;" onclick="setWidgetState(2)">Pressione CMS1</td>
+                <td id="cellaWidget3" class="cellaWidget" abbr="active" style="border: 1px solid white;" onclick="setWidgetState(3)">Pressione CMS2</td>
+              </tr>
+              
+              <tr>
+                <td id="cellaWidget4" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(4)">Ossigeno</td>
+                <td id="cellaWidget5" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(5)">Portata azoto</td>
+                <td id="cellaWidget6" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(6)">Umidità aria</td>
+                <td id="cellaWidget7" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(7)">Temperatura</td>
+              </tr>
+              
+              <tr>
+                <td id="cellaWidget8" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(8)">Ore in funzione</td>
+                <td id="cellaWidget9" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(9)">Scad silenziat.</td>
+                <td id="cellaWidget10" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(10)">Scad ossigeno</td>
+                <td id="cellaWidget11" class="cellaWidget" abbr="deactive" style="border: 1px solid white;" onclick="setWidgetState(11)">Scad umidità</td>
+              </tr>
+            </table>
             
             <table class="tabellaWarnings" id="tabellaWarnings1" hidden> 
               <tr> 
                 <td class="cellaTesto">Ossigeno elevato</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="oxgElevato" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="oxgElevato" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Massima press. aria comp.</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxPressAriaCompressa" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxPressAriaCompressa" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Umidità elevata aria comp.</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="umiditàElevata" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="umiditàElevataAriaCompressa" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
@@ -122,27 +145,27 @@
             <table class="tabellaWarnings" id="tabellaWarnings2" hidden>
               <tr> 
                 <td class="cellaTesto">Ossigeno elevato seconda soglia</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="ossigenoElevato2ndSoglia" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="ossigenoElevato2ndSoglia" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
 
               <tr>  
                 <td class="cellaTesto">Ossigeno elevato prima soglia</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="ossigenoElevato1stSoglia" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="ossigenoElevato1stSoglia" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Minima pressione azoto</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minimaPressioneAzoto" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minimaPressioneAzoto" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Massima temperatura</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxTemperatura" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxTemperatura" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Minima pressione aria</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minimaPressioneAria" value="0" unchecked readonly type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minimaPressioneAria" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
 
               <tr> 
@@ -154,22 +177,22 @@
             <table class="tabellaWarnings" id="tabellaWarnings3" hidden>
               <tr> 
                 <td class="cellaTesto">Comunicazione C4Y</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="comunicazioneC4Y" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="comunicazioneC4Y" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
               
               <tr> 
                 <td class="cellaTesto">Dispositivo non C4Y</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="dispNonC4Y" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="dispNonC4Y" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Errore connesione wifi</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="errConnWiFi" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="errConnWiFi" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Spegnimento non corretto</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="spegnimentoNonCorretto" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="spegnimentoNonCorretto" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
@@ -187,17 +210,17 @@
             <table class="tabellaWarnings" id="tabellaWarnings4" hidden>
               <tr> 
                 <td class="cellaTesto">Autonomia silenziatore</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaSilenziatore" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaSilenziatore" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Autonomia analizzatore O2</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaAnalizzatore" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaAnalizzatore" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
   
               <tr> 
                 <td class="cellaTesto">Autonomia sensore umidità</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaSensoreUmidità" value="0" unchecked type="checkbox"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="autonomiaSensoreUmidità" value="0" unchecked disabled type="checkbox"/></td>
               </tr>
 
               <tr> 
@@ -238,7 +261,7 @@
               </tr>
             </table>
 
-            <table id="tabellaImpostazioni" hidden> <!--INIZIO TABELLA SETTINGS-->
+            <table class="tabellaImpostazioni" id="tabellaImpostazioni" hidden> <!--INIZIO TABELLA SETTINGS-->
               <tr>
                 <td>
                   <table class="dimensione">
@@ -274,96 +297,96 @@
             <table class="tabellaService" id="tabellaServices1" hidden>
               <tr class="heightTr"> 
                 <td class="cellaTesto">Tempo di adsorption[s]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="tempoAdsorption" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="tempoAdsorption" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Tempo di desorption[s]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="tempoDesorption" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="tempoDesorption" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Tempo di cut-off[s]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="tempoCutoff" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="tempoCutoff" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Tempo di equalizzazione[s]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="tempoEqualizzazione" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="tempoEqualizzazione" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Pressione min stand-by [bar]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="pressioneMinStandby" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="pressioneMinStandby" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Pressione max stand-by[bar]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="pressioneMaxStandby" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="pressioneMaxStandby" value="0" type="number"/></td>
               </tr>
             </table>
             
             <table class="tabellaService" id="tabellaServices2" hidden>
               <tr class="heightTr"> 
                 <td class="cellaTesto">Pressione minima azoto[bar]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="pressioneMinAzoto" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="pressioneMinAzoto" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Prima soglia allarme O2</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="primaSogliaAllarmeO2" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="primaSogliaAllarmeO2" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Seconda soglia allarme O2</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="secondaSogliaAllarmeO2" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="secondaSogliaAllarmeO2" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Tempo massimo O2 elevato[min]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="tempoMaxO2elevato" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="tempoMaxO2elevato" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto" >Pressione max aria compressa[bar]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="pressioneMaxAriaCompressa" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="pressioneMaxAriaCompressa" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Prima soglia max umidità aria[C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="primaSogliaMaxUmidità" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="primaSogliaMaxUmidità" value="0" step=".01" type="number"/></td>
               </tr>
             </table>
   
             <table class="tabellaService" id="tabellaServices3" hidden>
               <tr class="heightTr"> 
                 <td class="cellaTesto">Seconda soglia massima umidità aria[C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="secondaSogliaMaxUmidità" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="secondaSogliaMaxUmidità" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Prima soglia temperatura aria[C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="primaSogliaTemperaturaAria" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="primaSogliaTemperaturaAria" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Seconda soglia temperatura aria[C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="secondaSogliaTemperaturaAria" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="secondaSogliaTemperaturaAria" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Pressione minima aria[bar]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="pressioneMinAria" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="pressioneMinAria" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Min range portata N2[Nm3/h]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minRangePortataN2" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="minRangePortataN2" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Max range portata N2[Nm3/h]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxRangePortataN2" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="maxRangePortataN2" value="0" type="number"/></td>
               </tr>
             </table>
   
@@ -380,22 +403,22 @@
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Min range umidità [C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="minRangeUmidità" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="minRangeUmidità" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Max range umidità [C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="maxRangeUmidità" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="maxRangeUmidità" value="0" step=".01" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Calibrazione umidità [C]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="calibrazioneUmidità" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="calibrazioneUmidità" value="0" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">iMFM Contatore totale [m3]</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="iMFMcontatoreTotale" value="0" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="iMFMcontatoreTotale" value="0" type="number"/></td>
               </tr>
             </table>
   
@@ -466,17 +489,17 @@
             <table class="tabellaService" id="tabellaServices7" hidden>
               <tr class="heightTr"> 
                 <td class="cellaTesto">Numero di serie</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="serial" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="serial" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Porta Claind4You</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="portC4Y" type="number"/></td>
+                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" onfocusout="sendParameters(this)" id="portC4Y" type="number"/></td>
               </tr>
   
               <tr class="heightTr"> 
                 <td class="cellaTesto">Broker</td>
-                <td style="border-bottom: 1px solid #ffffff;"><input class="cellaInput" id="broker" type="text"/></td>
+                <td style="border-bottom: 1px solid #ffffff; padding-left: 30%;""><p id="broker" style="font-size: 24px; margin-bottom: 0%;">0.0.0.0</p></td>
               </tr>
   
               <tr class="heightTr"> 
@@ -534,6 +557,7 @@
                    </button>
                   </td>
                </tr>
+               
             </table>
   
             <table class="tabellaService" id="tabellaServices9" hidden>
@@ -694,10 +718,10 @@
   
           <div id="pwrDiv" style="background-color: #add8e6;"> <!--PANNELLO COMANDI INFERIORE-->
             <button class="buttonPwr">
-              <img src="power_NB.png" id="imgPwr" class="imgPower" onclick="powerButton(this)"/>
+              <img src="power_NB.png" id="imgPwr" class="imgPower" name="buttonPowerStop" onclick="powerButton(this)"/>
             </button>
           </div>
-          <div>
+          <div id="wrnDiv">
             <button class="buttonWarning">
               <img src="warning-NB.png" id="imgWrn" class="imgWarning" onclick="showPage(this)"/>
             </button>
